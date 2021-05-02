@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+<h2>TO DO LIST</h2> 
+</head>
+<body>
+
+    <br>
+
+            
+            <label for="New Item">New Item:</label>
+
+            <input type="text" name="NewItem" id="myInput" value="23333">
+            
+            <br><br>
+
+            <button type="submit" onclick="list()">ADD</button>
+
+            <DIV id='myList'></DIV>
+
+            </DIV>
+        
+                <script>
+
+                function remove(obj)
+                {
+                    obj.style.display = "none";
+                }
+
+                function list()
+                {
+                    var myInput = document.getElementById("myInput").value;
+                    
+                    var node = document.createElement("LI");                 // Create a <li> node
+                    var textnode = document.createTextNode(myInput);         // Create a text node
+                    node.appendChild(textnode);                              // Append the text to <li>
+
+                    var att = document.createAttribute("style");
+                    att.value = "background:gray;border:1px solid silver;width:150px;padding:15px;margin:15px;";
+                    node.setAttributeNode(att);
+
+
+                    var att = document.createAttribute("onclick");
+                    att.value = "remove(this)";
+                    node.setAttributeNode(att);
+
+                    var att = document.createAttribute("onmouseover");
+                    att.value = "this.style.color='white'";
+                    node.setAttributeNode(att);
+
+                    var att = document.createAttribute("onmouseout");
+                    att.value = "this.style.color='black'";
+                    node.setAttributeNode(att);
+
+
+                    document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
+
+                    // Clear Input
+                    document.getElementById("myInput").value = "";
+                }
+            
+
+                
+
+            </script>
+</body>
+</html>
